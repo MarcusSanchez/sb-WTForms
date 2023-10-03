@@ -1,0 +1,15 @@
+{% extends 'base.jinja2' %}
+{% block title %}Update Pet{% endblock %}
+
+{% block content %}
+  <h1>{{ pet.name }}</h1>
+  {% if pet.photo_url %}
+    <img class="img-fluid" src="{{ pet.photo_url }}" alt="pet_pfp">
+  {% endif %}
+
+  <h2>Update</h2>
+  <form method="POST">
+    {% include "form.jinja2" %}
+    <button class="btn btn-primary" type="submit">Update</button>
+  </form>
+{% endblock %}

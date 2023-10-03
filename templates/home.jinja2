@@ -1,0 +1,21 @@
+{% extends 'base.jinja2' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>Pets Homepage</h1>
+
+  {% for pet in pets %}
+    {% if pet.photo_url %}
+      <img src="{{ pet.photo_url }}" alt="pet_pfp">
+    {% endif %}
+    <a href="/{{ pet.id }}">{{ pet.name }}</a>
+    {% if pet.available %}
+      <b> is available!</b>
+    {% endif %}
+    <hr>
+  {% else %}
+    <p>No pets yet!</p>
+  {% endfor %}
+
+  <a href="/add">Add a Pet</a>
+{% endblock %}
